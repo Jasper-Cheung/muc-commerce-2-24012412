@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}生命周期分析 | 电商用户留存洞察平台{% endblock %}
+{% block content %}
+<section class="hero compact">
+  <div>
+    <p class="eyebrow">RETENTION JOURNEY</p>
+    <h1>用户生命周期分析</h1>
+    <p class="lead">从使用时长观察用户规模、订单表现与流失风险。</p>
+  </div>
+  <a class="button secondary" href="{{ url_for('dashboard') }}">返回数据看板</a>
+</section>
+
+<aside class="insight"><strong>关键发现：</strong>{{ segment_summary }}</aside>
+
+<section class="panel segment-panel">
+  <h2>分阶段指标明细</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>生命周期阶段</th><th>用户数</th><th>用户占比</th><th>流失人数</th><th>流失率</th><th>平均订单数</th></tr>
+      </thead>
+      <tbody>
+        {% for row in segment_rows %}
+        <tr>
+          <td><strong>{{ row['TenureGroup'] }}</strong></td>
+          <td>{{ row['用户数'] }}</td>
+          <td>{{ row['用户占比'] }}</td>
+          <td>{{ row['流失人数'] }}</td>
+          <td><span class="rate-pill">{{ row['流失率'] }}</span></td>
+          <td>{{ row['平均订单数'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
