@@ -3,7 +3,7 @@ const input = document.querySelector("#question");
 const answer = document.querySelector("#answer");
 
 async function askQuestion(question) {
-  answer.textContent = "正在读取本地分析结果……";
+  answer.textContent = "正在查询项目数据……";
   try {
     const response = await fetch("/api/ask", {
       method: "POST",
@@ -11,9 +11,9 @@ async function askQuestion(question) {
       body: JSON.stringify({ question }),
     });
     const data = await response.json();
-    answer.textContent = data.answer;
+    answer.textContent = data.ok ? data.answer : data.error;
   } catch (error) {
-    answer.textContent = "请求失败，请确认 Flask 服务仍在运行。";
+    answer.textContent = "请求失败，请确认Flask服务仍在运行。";
   }
 }
 

@@ -1,17 +1,13 @@
 {% extends "base.html" %}
-{% block title %}数据看板 | 电商用户留存洞察平台{% endblock %}
+{% block title %}数据看板 | 电商用户分析系统{% endblock %}
 {% block content %}
 <section class="hero">
   <div>
     <p class="eyebrow">WELCOME, {{ username }}</p>
-    <h1>电商用户留存数据看板</h1>
-    <p class="lead">衔接第 5 天统计结果与第 6 天可视化成果，快速识别高风险用户。</p>
+    <h1>电商用户行为数据看板</h1>
+    <p class="lead">页面沿用前期分析成果，第8天新增可测试的JSON接口。</p>
   </div>
-  <div class="hero-actions">
-    <a class="button secondary" href="{{ url_for('segments') }}">查看生命周期</a>
-    <a class="button secondary" href="{{ url_for('assistant') }}">进入智能问答</a>
-    <a class="button export" href="{{ url_for('download_csv', category=selected_category) }}">导出 CSV</a>
-  </div>
+  <a class="button secondary" href="{{ url_for('assistant') }}">进入智能问答</a>
 </section>
 
 <section class="metric-grid">
@@ -27,7 +23,7 @@
 <section class="panel">
   <div class="panel-heading">
     <div><p class="eyebrow">INTERACTION</p><h2>按偏好品类筛选</h2></div>
-    <form method="get" style="display:flex; gap:10px; align-items:center;">
+    <form method="get">
       <select name="category" onchange="this.form.submit()">
         {% for category in categories %}
         <option value="{{ category }}" {% if category == selected_category %}selected{% endif %}>{{ category }}</option>
@@ -48,14 +44,8 @@
 </section>
 
 <section class="chart-grid">
-  <article class="panel">
-    <h2>不同偏好品类用户比较</h2>
-    <img src="{{ url_for('static', filename='images/01_category_bar.png') }}" alt="品类用户比较柱状图" style="width:100%;">
-  </article>
-  <article class="panel">
-    <h2>各生命周期阶段流失趋势</h2>
-    <img src="{{ url_for('static', filename='images/03_ordered_line.png') }}" alt="生命周期阶段流失趋势折线图" style="width:100%;">
-  </article>
+  <article class="panel"><h2>不同偏好品类用户比较</h2><img src="{{ url_for('static', filename='images/01_category_bar.png') }}" alt="品类用户比较柱状图"></article>
+  <article class="panel"><h2>生命周期阶段与流失率</h2><img src="{{ url_for('static', filename='images/03_ordered_line.png') }}" alt="生命周期阶段折线图"></article>
 </section>
 
 <aside class="insight"><strong>数据观察：</strong>{{ insight }}</aside>

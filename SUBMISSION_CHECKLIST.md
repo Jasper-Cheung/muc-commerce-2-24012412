@@ -3,7 +3,7 @@
 ## 通用检查
 
 - [x] 学号已填写为 24012412
-- [x] Day03 至 Day06 四个 Notebook 均存在，Day07 Web 项目目录完整
+- [x] Day03 至 Day06 四个 Notebook 均存在
 - [x] 四个 Notebook 均已从头运行
 - [x] Notebook 中没有错误输出
 - [x] Notebook 中没有“请填写”、`TODO` 或学号占位内容
@@ -39,11 +39,13 @@
 - [x] 观察、证据、边界和综合结论已填写
 - [x] `python scripts/validate_submission.py` 检查通过
 
-## Day07
+## Day08
 
-- [x] 登录、退出与未登录访问拦截可用
-- [x] 4 张指标卡、2 张真实图表与品类筛选可用
-- [x] 5 类离线数据问答可用
-- [x] CSV 导出与生命周期详情页两项拓展可用
-- [x] 5 张验收截图齐全
-- [x] 第 7 天环境与提交校验脚本通过
+- [x] `day08_flask_upgrade/` 目录已补充
+- [x] 第7天登录、看板和问答页面可继续运行
+- [x] `/health`、`/api/metrics`、`/api/categories` 可返回 JSON
+- [x] `category=Fashion` 会进入实际筛选逻辑
+- [x] 未登录业务 API 返回 401，错误请求返回 400 或 404
+- [x] API 数据已转换为普通字典、列表、字符串和数字
+- [x] `tests/test_app.py` 包含 7 条可重复运行的断言测试
+- [x] README 已填写学号、接口和测试说明
