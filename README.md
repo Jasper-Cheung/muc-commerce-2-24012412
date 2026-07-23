@@ -2,7 +2,7 @@
 
 学号：24012412
 
-本仓库包含 Day03 至 Day06 的数据分析成果，以及在原有看板基础上完成的 Day08 Flask 项目强化。
+本仓库包含 Day03 至 Day06 的数据分析成果、Day08 Flask 项目强化，以及补充完成的 Day09 机器学习数据准备和 Day10 分类模型比较。
 
 ## 项目结构
 
@@ -34,6 +34,16 @@
 │   ├── tests/
 │   ├── validate_day08_environment.py
 │   └── validate_day08_submission.py
+├── day09_ml_preparation_student/
+│   ├── data/
+│   ├── notebooks/
+│   ├── output/
+│   └── validate_day09_submission.py
+├── day10_model_comparison_student/
+│   ├── data/
+│   ├── notebooks/
+│   ├── output/
+│   └── validate_day10_submission.py
 ├── scripts/
 │   ├── validate_seed.py
 │   └── validate_submission.py
@@ -56,6 +66,10 @@ Day05 电商用户多维分析
 Day06 数据可视化与综合表达
         ↓
 Day08 Flask 请求流程、JSON API 与自动测试
+        ↓
+Day09 机器学习数据口径、分层划分与预处理
+        ↓
+Day10 三种分类模型比较、保存与应用
 ```
 
 
@@ -74,3 +88,8 @@ python validate_day08_submission.py
 python -m pytest -q
 python app.py
 ```
+
+
+## Day09 与 Day10 补充成果
+
+第9天使用固定随机种子42和 `stratify=y` 划分数据，只在训练集上拟合预处理器，得到训练集4504×36、测试集1126×36的有限数值矩阵。第10天在同一划分上比较逻辑回归、决策树与随机森林，输出完整指标、混淆矩阵、预测名单、特征重要性和可重新加载的模型。
